@@ -104,8 +104,8 @@ https://sync.appfluence.com/native/api/v1/item/963006001/
 
 | Component        | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------- | :------: | :------------: | :-----------: | :---------: |
-| Adding Form      |    H     |      4hrs      |     4hrs      |    -hrs     |
-| Working with API |    H     |      4hrs      |     4hrs      |    -hrs     |
+| Adding Form      |    H     |     10hrs      |     12hrs     |    -hrs     |
+| Working with API |    H     |     10hrs      |     4hrs      |    -hrs     |
 | Total            |    H     |      8hrs      |     5hrs      |    -hrs     |
 
 ## Code Snippet
