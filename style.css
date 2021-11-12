@@ -5,10 +5,12 @@
 
 html,
 body {
-  margin: 20px;
+  margin: 0px;
   padding: 0;
   min-height: 100vh;
   background-image: url("https://m.media-amazon.com/images/I/91dHRGIV65L._SL1500_.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 article {
@@ -22,17 +24,15 @@ article {
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
-.background-image {
-  background-size: cover;
-  background-repeat: no-repeat;
+/* .background-image {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 h1 {
   font-family: "Ultra", serif;
