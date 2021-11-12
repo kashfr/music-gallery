@@ -14,11 +14,13 @@ let albumInfo = document.querySelector(".artwork-info");
 async function fetchAlbumData() {
   // Write code here.
   try {
-    const response = `https://www.theaudiodb.com/api/v1/json/523532/searchalbum.php?s=${artist}`;
+    const response = `https://www.theaudiodb.com/api/v1/json/${apiKey}/searchalbum.php?s=${artist}`;
     const res = await axios.get(response);
     const albumData = res.data;
     let description = albumData.album[0].strDescriptionEN;
     let artwork = albumData.album[0].strAlbumThumb;
+    let idArtist = albumData.album[0].idArtist;
+    console.log(idArtist);
     // backgroundImage.innerHTML = albumData.album[0].strAlbumThumb;
     // const album = res.data.album.strAlbumThumb;
     console.log(albumData);
@@ -54,3 +56,4 @@ fetchArtistData();
 // console.log(albumInfo);
 
 // let randomNumber = Math.floor( Math.random()*10 )
+// if (isAlive === true && hasBlackJack === false)
