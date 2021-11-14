@@ -3,67 +3,127 @@
 // }
 const domain = `https://www.theaudiodb.com/`;
 const apiKey = 523532;
-let TADB_Artist_ID = 112059;
+let TADB_Artist_ID = "";
 
 // let artistData = `https://www.theaudiodb.com/api/v1/json/${apiKey}/artist.php?i=${TADB_Artist_ID}`;
-// let artist = "kanye";
+// let artist = document.querySelector("input-el").value;
 let backgroundImage = document.querySelector(".background-image");
 let albumInfo = document.querySelector(".artwork-info");
-// let artistPic = document.querySelector("#artist-pic");
+let artistPic = document.querySelector("#artist-pic");
 
-const test = document.querySelector("#test");
-// test.innerHTML = "Ye Season";
-// document.getElementById("test").innerHTML = "Ye";
+let inputEL = document.querySelector("#input-el");
+let inputBTN = document.getElementById("#input-btn");
+
+inputEL.addEventListener("keyup", (e) => {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    console.log("Enter was pressed");
+  }
+});
 
 async function fetchAlbumData() {
-  // Write code here.
+  let artist = document.querySelector("#input-el").value;
   try {
-    const response = `https://www.theaudiodb.com/api/v1/json/${apiKey}/searchalbum.php?s=${TADB_Artist_ID}`;
+    const response = `https://www.theaudiodb.com/api/v1/json/${apiKey}/searchalbum.php?s=${artist}`;
     const res = await axios.get(response);
-    const albumData = res.data;
-    // let description = albumData.album[0].strDescriptionEN;
-    let artwork = albumData.album[0].strAlbumThumb;
-    let idArtist = albumData.album[0].idArtist;
-    document.body.style.backgroundImage = `url("${artwork}")`;
-    // albumInfo.innerHTML = "";
-    let newArtistInfo = document.createElement("p");
-    newArtistInfo.textContent = `${description}`;
-    // test.appendChild(newArtistInfo);
+    console.log(res);
+    if (res.data) {
+      const albumData = res.data.album;
+      const random = Math.floor(Math.random() * albumData.length);
+      console.log(random);
+      let description = albumData[random].strDescriptionEN;
+      // document.querySelector("#album-info").innerText = description;
+      let artwork = albumData[random].strAlbumThumb;
+      let idArtist = albumData[random].idArtist;
+      if (artwork === "" || artwork === null) {
+        document.body.style.backgroundColor = "black";
+      } else {
+        document.body.style.backgroundImage = `url("${artwork}")`;
+      }
+      if (!description) {
+        document.querySelector("#album-info").innerText = "try another album";
+      } else {
+        document.querySelector("#album-info").innerText = description;
+      }
+      // let newArtistInfo = document.createElement("p");
+      // newArtistInfo.textContent = `${description}`;
+      // test.appendChild(newArtistInfo);
+      console.log(description);
+      console.log(artwork);
+      console.log(idArtist);
 
-    console.log(artwork);
-    // console.log(idArtist);
-
-    // const album = res.data.album.strAlbumThumb;
-    console.log(albumData);
-    // console.log(albumData.album[0].strAlbumThumb);
-    // console.log(albumData.album[0].strDescriptionEN);
-    fetchArtistData(idArtist);
-    console.log(description);
+      const album = albumData[random].strAlbumThumb;
+      console.log(albumData);
+      // console.log(albumData.album[0].strAlbumThumb);
+      // console.log(albumData.album[0].strDescriptionEN);
+      fetchArtistData(idArtist);
+      // console.log(description);
+    }
   } catch (error) {
     console.log(error);
-    alert(`${artist} album not found`);
+    // alert(`${artist} album not found`);
   }
 }
 fetchAlbumData();
 
-// function test() {}
-
-async function fetchArtistData(res) {
+async function fetchArtistData(id) {
   // Write code here.
   try {
-    const response = `https://www.theaudiodb.com/api/v1/json/${apiKey}/artist.php?i=${res}`;
+    const response = `https://www.theaudiodb.com/api/v1/json/${apiKey}/artist.php?i=${id}`;
     const res = await axios.get(response);
-    const artistData = res.data.artists[0];
-    // artistPic.src = `${artistData.strArtistThumb}`;
-    document.getElementById("artist-pic").src = `${artistData.strArtistThumb}`;
-
+    console.log(res);
+    const artistData = res.data;
+    console.log(artistData.artists[0].strArtistThumb);
+    // artistPic.src = `${artistData.artists[0].strArtistThumb}`;
+    document.querySelector(
+      "#artist-pic"
+    ).src = `${artistData.artists[0].strArtistThumb}`;
     console.log(artistData.strArtistThumb);
   } catch (error) {
     console.log(error);
-    alert(`${artist} artist not found`);
+    // alert(`${artist} artist not found`);
   }
 }
-// fetchArtistData();
+
+// var evt = new KeyboardEvent("keydown", {
+//   bubbles: true,
+//   cancelable: true,
+//   keyCode: 13,
+// });
+// element.dispatchEvent(evt);
+
+// document.getElementById("input-el").addEventListener(
+//   "keydown",
+//   function (e) {
+//     if (!e) {
+//       let e = window.event;
+//     }
+//     e.preventDefault(); // sometimes useful
+
+//     // Enter is pressed
+//     if (e.keyCode == 13) {
+//       fetchAlbumData();
+//       console.log("test");
+//     }
+//   },
+//   false
+// );
+
+// function handle(e) {
+//   if (e.key === "Enter") {
+//     alert("Enter was just pressed.");
+//   }
+
+//   return false;
+// }
+
+// inputEL.addEventListener("keyup", function (event) {
+//   if (event.keyCode === 13) {
+//     alert("Enter was just pressed.");
+//   }
+//   event.preventDefault();
+//   document.getElementById("input-btn").click();
+// });
 
 // https://www.last.fm/music/Drake/Certified+Lover+Boy
 

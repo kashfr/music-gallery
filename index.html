@@ -17,6 +17,8 @@
 <body>
   <!-- <img src="" id="album-artwork" /> -->
   <div class="background-image">
+    <!-- <img src="" width="400" 
+     height="500" /> -->
     <!-- <h1>Image Overlay</h1> -->
   </div>
   <article>
@@ -34,12 +36,13 @@
   </div>
   <div class="search-box">
     <input type="text" id="input-el" placeholder="Search for Artist">
+    <button onclick="fetchAlbumData()" id="input-btn">Search</button>
     <!-- <button id="input-btn">Search</button> -->
   </div>
 
   <div class="artwork-info">
     <img id="artist-pic" src="https://via.placeholder.com/300" alt="artist">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae exercitationem a hic nemo rerum
+    <p id="album-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae exercitationem a hic nemo rerum
       placeat quibusdam sequi tempore enim, minima natus vel consequatur ex delectus unde cupiditate nisi nulla!</p>
     <!-- <img src="https://via.placeholder.com/300" alt="album-artwork"> -->
     </div>
