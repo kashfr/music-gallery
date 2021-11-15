@@ -1,18 +1,13 @@
-// function off() {
-//   document.getElementById("overlay").style.display = "none";
-// }
 const domain = `https://www.theaudiodb.com/`;
 const apiKey = 523532;
 let TADB_Artist_ID = "";
-
-// let artistData = `https://www.theaudiodb.com/api/v1/json/${apiKey}/artist.php?i=${TADB_Artist_ID}`;
-// let artist = document.querySelector("input-el").value;
 let backgroundImage = document.querySelector(".background-image");
 let albumInfo = document.querySelector(".artwork-info");
 let artistPic = document.querySelector("#artist-pic");
-
 let inputEL = document.querySelector("#input-el");
 let inputBTN = document.querySelector("#input-btn");
+// let artistData = `https://www.theaudiodb.com/api/v1/json/${apiKey}/artist.php?i=${TADB_Artist_ID}`;
+// let artist = document.querySelector("input-el").value;
 
 async function fetchAlbumData() {
   let artist = document.querySelector("#input-el").value;

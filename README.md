@@ -89,14 +89,15 @@ https://whimsical.com/seeing-sounds-mobile-GBhPyannnTEVB8Y8Usgpee
 
 people love music. people love art as well. this product combines music and art. it will provide a one stop shop for music fans to access tons of useful information about their favorite artists.
 
-- add the ability to search for artists and return results
+- add the ability to search for artists and return photo
 - add the ability to search for albums and return results
-- add the ability to search for songs and return results
 
 #### PostMVP
 
 - add more features to the website
+- add the ability to search for specific songs
 - add soundcloud music player api
+- add random artist shuffle button
 - add the ability to seaarch for music videos
 
 ## Project Schedule
