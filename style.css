@@ -15,6 +15,7 @@ body {
   background-position-x: center;
   background-position-y: 25%;
   /* background-size: contain; */
+  background-color: black;
 }
 
 article {
@@ -22,13 +23,13 @@ article {
   display: grid;
   align-content: normal;
   /* grid-template-rows: auto 1fr auto; */
-  grid-template-columns: 100%;
+  /* grid-template-columns: 100%; */
 }
 
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .background-image {
@@ -40,9 +41,13 @@ header {
 h1 {
   font-family: "Ultra", serif;
   margin: 20px;
-  color: black;
+  color: white;
   display: flex;
   justify-content: center;
+}
+
+.title {
+  text-shadow: 0 0 80px rgb(192 219 255 / 75%), 0 0 32px rgb(65 120 255 / 24%);
 }
 
 .search-box {
@@ -55,13 +60,25 @@ h1 {
   padding: 15px 32px;
   width: 25vw;
   border-radius: 25px;
-}
-
-:focus {
   outline: none;
   border: 3px solid dodgerblue;
   box-shadow: 0 0 8px 0 dodgerblue;
 }
+
+#input-btn {
+  padding: 15px 20px;
+  width: 10vw;
+  border-radius: 25px;
+  outline: none;
+  border: 3px solid red;
+  box-shadow: 0 0 8px 0 red;
+}
+
+/* :focus {
+  outline: none;
+  border: 3px solid dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+} */
 
 #artist-pic {
   height: 300px;
@@ -77,7 +94,7 @@ h1 {
 }
 
 #album-info {
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
   border-radius: 8px;
   padding: 10px;
 }

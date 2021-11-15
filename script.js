@@ -12,14 +12,15 @@ let albumInfo = document.querySelector(".artwork-info");
 let artistPic = document.querySelector("#artist-pic");
 
 let inputEL = document.querySelector("#input-el");
-let inputBTN = document.getElementById("#input-btn");
+let inputBTN = document.querySelector("#input-btn");
 
-inputEL.addEventListener("keyup", (e) => {
-  e.preventDefault();
-  if (e.keyCode === 13) {
-    console.log("Enter was pressed");
-  }
-});
+// window.onload() => {
+//   console.log(new Date())
+// }
+
+// $(document).ready(() => {
+//   console.log(new Date())
+// })
 
 async function fetchAlbumData() {
   let artist = document.querySelector("#input-el").value;
@@ -48,9 +49,9 @@ async function fetchAlbumData() {
       // let newArtistInfo = document.createElement("p");
       // newArtistInfo.textContent = `${description}`;
       // test.appendChild(newArtistInfo);
-      console.log(description);
-      console.log(artwork);
-      console.log(idArtist);
+      // console.log(description);
+      // console.log(artwork);
+      // console.log(idArtist);
 
       const album = albumData[random].strAlbumThumb;
       console.log(albumData);
@@ -73,7 +74,7 @@ async function fetchArtistData(id) {
     const res = await axios.get(response);
     console.log(res);
     const artistData = res.data;
-    console.log(artistData.artists[0].strArtistThumb);
+    // console.log(artistData.artists[0].strArtistThumb);
     // artistPic.src = `${artistData.artists[0].strArtistThumb}`;
     document.querySelector(
       "#artist-pic"
@@ -84,6 +85,18 @@ async function fetchArtistData(id) {
     // alert(`${artist} artist not found`);
   }
 }
+
+inputEL.addEventListener("keyup", (event) => {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    console.log("Enter was pressed");
+    inputBTN.click();
+  }
+});
+
+inputBTN.addEventListener("click", () => {
+  alert("Button was clicked");
+});
 
 // var evt = new KeyboardEvent("keydown", {
 //   bubbles: true,
